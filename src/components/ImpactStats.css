@@ -1,0 +1,42 @@
+.impact {
+  padding: 90px 20px;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.impact h2 {
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.impact-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.impact-card:hover {
+  transform: translateY(-8px);
+}
+
+
+.impact-card h3 {
+  font-size: 34px;
+  color: #0a2647;
+  font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+  .impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

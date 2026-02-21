@@ -1,0 +1,230 @@
+.about-modern {
+  padding-top: 120px;
+  background: #f9fbfd;
+}
+
+/* HERO */
+
+.about-hero {
+  background: linear-gradient(135deg, #1E63B5, #1FA89A);
+  padding: 120px 20px;
+  text-align: center;
+  color: white;
+}
+
+.about-hero h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.about-hero p {
+  max-width: 800px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* INTRO */
+
+.about-container {
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 0 40px;
+}
+
+.about-intro {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #444;
+  text-align: center;
+}
+
+/* CORE SECTION */
+
+.core-section {
+  background: white;
+  padding: 100px 40px;
+}
+
+.core-section h2 {
+  text-align: center;
+  margin-bottom: 60px;
+  color: #1E63B5;
+}
+
+.core-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.core-card {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+}
+
+.core-card:hover {
+  transform: translateY(-8px);
+  border-top: 4px solid #1FA89A;
+}
+
+.core-card h3 {
+  margin-bottom: 15px;
+  color: #1E63B5;
+}
+
+.core-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* VISION MISSION */
+
+.vision-mission {
+  display: flex;
+  gap: 60px;
+  padding: 100px 40px;
+  justify-content: center;
+  background: linear-gradient(120deg, #eef4fb, #f9fbfd);
+}
+
+.vm-card {
+  background: white;
+  padding: 50px;
+  border-radius: 25px;
+  max-width: 500px;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+.vm-card h2 {
+  margin-bottom: 20px;
+  color: #1E63B5;
+}
+
+/* VALUES */
+
+.values-section {
+  padding: 100px 40px;
+  text-align: center;
+}
+
+.values-section h2 {
+  margin-bottom: 50px;
+  color: #1E63B5;
+}
+
+.values-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.value-card {
+  padding: 25px 40px;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #1E63B5, #1FA89A);
+  color: white;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+
+  .core-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vision-mission {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .values-grid {
+    flex-direction: column;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .core-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero h1 {
+    font-size: 32px;
+  }
+
+}
+
+/* ICON STYLING */
+
+.core-icon,
+.vm-icon,
+.value-icon {
+  font-size: 32px;
+  color: #1FA89A;
+  margin-bottom: 20px;
+}
+
+/* CORE CARD UPDATE */
+
+.core-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+  text-align: left;
+  transition: 0.3s ease;
+}
+
+.core-card:hover {
+  transform: translateY(-8px);
+  border-top: 4px solid #1FA89A;
+}
+
+/* VISION / MISSION ICON */
+
+.vm-icon {
+  font-size: 36px;
+  color: #1E63B5;
+  margin-bottom: 20px;
+}
+
+/* VALUES CARD UPDATE */
+
+.value-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+  border-bottom: 4px solid #1FA89A;
+}
+
+.value-card h3 {
+  margin-bottom: 10px;
+  color: #1E63B5;
+}
+
+.value-card p {
+  font-size: 14px;
+  color: #555;
+}

@@ -1,0 +1,205 @@
+/* ===============================
+   HERO SECTION
+================================= */
+
+.hero-vrsf {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Background Slides */
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.4s ease-in-out;
+  transform: scale(1.08);
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+/* Premium Overlay */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(10, 15, 30, 0.815) 0%,
+    rgba(15,25,45,0.75) 45%,
+    rgba(15,25,45,0.45) 75%,
+    rgba(0,0,0,0.25) 100%
+  );
+  z-index: 1;
+}
+
+/* Main Container */
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
+  margin: auto;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 70px;
+  gap: 40px;
+}
+
+/* ===============================
+   LEFT CONTENT
+================================= */
+
+.hero-left-content {
+  flex: 2;
+  color: #ffffff;
+}
+
+.hero-left-content h1 {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 25px;
+  letter-spacing: -1px;
+}
+
+.hero-left-content p {
+  font-size: 19px;
+  line-height: 1.8;
+  max-width: 620px;
+  margin-bottom: 40px;
+  opacity: 0.95;
+}
+
+/* Button */
+
+.hero-support-btn {
+  padding: 16px 55px;
+  border-radius: 50px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  background: linear-gradient(90deg, #1E63B5, #1FA89A);
+  color: white;
+  cursor: pointer;
+  transition: 0.35s ease;
+}
+
+.hero-support-btn:hover {
+  background: #7ED957;
+  color: #000;
+  transform: translateY(-5px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+}
+
+/* ===============================
+   RIGHT QR SECTION
+================================= */
+
+.hero-qr {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.qr-card {
+  background: linear-gradient(90deg, #1e62b5ce, #1fa89abb);
+  backdrop-filter: blur(12px);
+  padding: 10px;
+  border-radius: 28px;
+  text-align: center;
+  box-shadow: 0 40px 120px rgba(255, 255, 255, 0.397);
+  min-width: 240px;
+}
+
+.qr-card span {
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #1E63B5;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.qr-card img {
+  width: 200px;
+  border-radius: 28px;
+}
+
+/* ===============================
+   TABLET
+================================= */
+
+@media (max-width: 1024px) {
+
+  .hero-container {
+    padding: 0 40px;
+  }
+
+  .hero-left-content h1 {
+    font-size: 42px;
+  }
+
+  .hero-left-content p {
+    font-size: 17px;
+  }
+}
+
+/* ===============================
+   MOBILE
+================================= */
+
+@media (max-width: 768px) {
+
+  .hero-container {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 25px;
+    margin-top: 150px;
+  }
+
+  .hero-left-content {
+    order: 1;
+  }
+
+  .hero-left-content h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .hero-left-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .hero-qr {
+    order: 2;
+    justify-content: center;
+    margin-top: 2px;
+     margin-bottom:0;
+  }
+
+  .qr-card {
+    width: 100%;
+    max-width: 200px;
+    padding: 2px;
+  }
+
+  .qr-card img {
+    width: 200px;
+  }
+
+  .hero-support-btn {
+    width: 70%;
+  }
+}

@@ -1,0 +1,163 @@
+/* PAGE BASE */
+.initiatives-page {
+  padding-top: 110px;
+  background: #f6f9fc;
+}
+
+/* HERO */
+.initiatives-hero {
+  text-align: center;
+  padding: 90px 20px 120px;
+  background: linear-gradient(120deg, #1e63b5, #1fa89a);
+  color: #fff;
+}
+
+.initiatives-hero h1 {
+  font-size: 44px;
+  margin-bottom: 15px;
+}
+
+.initiatives-hero p {
+  font-size: 18px;
+}
+
+/* GRID */
+.initiatives-grid {
+  max-width: 1200px;
+  margin: -70px auto 0;
+  padding: 0 30px 120px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+}
+
+/* FLIP CARD */
+.flip-card {
+  perspective: 1200px;
+  height: 440px;
+  cursor: pointer;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+/* FRONT & BACK */
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+}
+
+/* FRONT */
+.flip-front {
+  background-size: cover;
+  background-position: center;
+}
+
+.flip-front .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.3)
+  );
+}
+
+.front-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 35px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.front-content .icon {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+.front-content h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.front-content p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.hint {
+  margin-top: 15px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* BACK */
+.flip-back {
+  background: #ffffff;
+  transform: rotateY(180deg);
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.flip-back h3 {
+  color: #1e63b5;
+  margin-bottom: 15px;
+}
+
+.flip-back ul {
+  padding-left: 18px;
+  margin-bottom: 15px;
+}
+
+.flip-back ul li {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.back-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .initiatives-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .initiatives-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flip-card {
+    height: 420px;
+  }
+
+  .initiatives-hero h1 {
+    font-size: 32px;
+  }
+}
