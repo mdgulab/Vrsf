@@ -1,5 +1,5 @@
 /* ===============================
-   MODERN NAVBAR (ORIGINAL LOOK)
+   DESKTOP NAVBAR
 ================================ */
 
 .navbar-modern {
@@ -20,12 +20,12 @@
   justify-content: space-between;
 }
 
-/* Logo */
 .logo img {
   height: 45px;
 }
 
-/* Menu */
+/* ===== Menu ===== */
+
 .nav-menu {
   display: flex;
   align-items: center;
@@ -41,13 +41,12 @@
   position: relative;
 }
 
-/* ✅ ACTIVE PAGE COLOR */
 .nav-menu a.active {
   color: #1FA89A;
   font-weight: 600;
 }
 
-/* ✅ HOVER UNDERLINE (SIMPLE) */
+/* Hover underline */
 .nav-menu a::after {
   content: "";
   position: absolute;
@@ -73,7 +72,8 @@
   cursor: pointer;
 }
 
-/* Dropdown */
+/* ===== Dropdown (DESKTOP FIXED) ===== */
+
 .dropdown-item {
   position: relative;
 }
@@ -81,15 +81,25 @@
 .dropdown-menu {
   position: absolute;
   top: 35px;
-  left: 0px;
+  left: 0;
   background: white;
   border-radius: 15px;
-  padding: 12px;
+  padding: 14px 16px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.1);
   min-width: 180px;
+
+  /* 🔥 FIX */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* Burger Toggle */
+.dropdown-menu a {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Burger */
 .toggle-btn {
   display: none;
   width: 42px;
@@ -100,38 +110,107 @@
   justify-content: center;
   cursor: pointer;
   font-size: 18px;
+  padding-right: 10px;
 }
 
 /* ===============================
-   RESPONSIVE (MOBILE / TABLET)
+   MOBILE / TABLET
 ================================ */
 
 @media (max-width: 992px) {
 
+  .navbar-modern {
+    background: #0b1c2d;
+    padding: 20px;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
   .toggle-btn {
-    display: flex; /* ✅ burger appears */
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    background: transparent;
+    color: #fff;
+    z-index: 3000;
   }
 
   .nav-menu {
     position: fixed;
     top: 0;
-    right: -100%;
+    left: 0;
+    width: 100%;
     height: 100vh;
-    width: 300px;
-    background: #ffffff;
+    background: rgba(11, 28, 45, 0.55);
+    backdrop-filter: blur(8px);
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 100px 40px;
-    gap: 25px;
-    transition: 0.4s ease;
-    box-shadow: -10px 0 40px rgba(0,0,0,0.1);
+    align-items: center;
+    padding: 90px 20px 30px;
+    gap: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: 0.35s ease;
   }
 
   .nav-menu.open {
-    right: 0;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-menu a,
+  .dropdown-title {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .nav-menu a.active {
+    color: #31cadf;
+  }
+
+  .dropdown-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .dropdown-menu {
+    position: relative;
+    margin-bottom: 20px;
+    margin-left:70px;
+    background: rgba(255, 255, 255, 0.082);
+    border-radius: 12px;
+    padding: 14px;
+    width: 100%;
+    max-width: 260px;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .dropdown-menu a {
+    font-size: 14px;
+    opacity: 0.95;
   }
 
   .support-btn {
-    width: 100%;
+    color: #ffffff;
+    width: 90%;
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 15px;
   }
 }

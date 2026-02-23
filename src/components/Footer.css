@@ -1,169 +1,153 @@
-/* ===============================
-   FOOTER MAIN
-================================= */
-/* ===============================
-   BACK TO TOP BUTTON
-================================= */
-
-.back-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  border: none;
-  background: linear-gradient(90deg, #1E63B5, #1FA89A);
-  color: #ffffff;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  transition: 0.3s ease;
-  z-index: 1000;
-}
-
-.back-to-top:hover {
-  background: #7ED957;
-  color: #000;
-  transform: translateY(-4px);
-}
-
 .footer-premium {
-  background: linear-gradient(135deg, #0f1c2e, #071021);
-  color: #ffffff;
-  padding: 100px 40px 40px;
+  background: radial-gradient(circle at top, #0f2a44, #070d1a);
+  color: #fff;
+  padding: 120px 40px 40px;
   position: relative;
-  overflow: hidden;
 }
 
-/* subtle glowing accents */
-.footer-premium::before {
-  content: "";
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(31,168,154,0.15), transparent 70%);
-  top: -200px;
-  right: -200px;
+/* ===== TOP CTA ===== */
+.footer-cta {
+  max-width: 1300px;
+  margin: auto;
+  padding: 40px 50px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 80px;
+  backdrop-filter: blur(10px);
 }
 
+.footer-tag {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #1FA89A;
+}
+
+.footer-cta h2 {
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+.footer-cta p {
+  color: #cfd8e3;
+  max-width: 500px;
+}
+
+.footer-cta-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #1E63B5, #1FA89A);
+  border: none;
+  padding: 14px 26px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #1FA89A;
+  padding: 14px 26px;
+  border-radius: 8px;
+  color: #1FA89A;
+  cursor: pointer;
+}
+
+/* ===== GRID ===== */
 .footer-container {
   max-width: 1300px;
   margin: auto;
-  display: flex;
-  justify-content: space-between;
-  gap: 60px;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 2;
-}
-
-/* Column */
-
-.footer-col {
-  flex: 1;
-  min-width: 280px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
 }
 
 .footer-logo {
-  width: 180px;
-  margin-bottom: 25px;
+  width: 160px;
+  margin-bottom: 20px;
 }
 
 .footer-small {
   font-size: 13px;
   opacity: 0.7;
-  margin-bottom: 20px;
 }
 
-.footer-col p {
-  font-size: 15px;
-  line-height: 1.7;
-  color: #cfd8e3;
-}
-
-/* ===============================
-   SUBSCRIBE
-================================= */
-
-.subscribe-col h3,
 .footer-col h3 {
-  margin-bottom: 20px;
-  font-size: 20px;
+  margin-bottom: 18px;
   color: #1FA89A;
 }
 
-.subscribe-box {
-  display: flex;
-  border-radius: 50px;
-  overflow: hidden;
-  background: #ffffff;
-}
-
-.subscribe-box input {
-  flex: 1;
-  padding: 14px 20px;
-  border: none;
-  outline: none;
-  font-size: 14px;
-}
-
-.subscribe-box button {
-  padding: 0 25px;
-  border: none;
-  background: linear-gradient(90deg, #1E63B5, #1FA89A);
-  color: #ffffff;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.subscribe-box button:hover {
-  background: #7ED957;
-  color: #000;
-}
-
-/* ===============================
-   POLICIES
-================================= */
-
-.policy-list {
+.footer-links {
   list-style: none;
   padding: 0;
 }
 
-.policy-list li {
+.footer-links li {
   margin-bottom: 12px;
-  font-size: 14px;
   cursor: pointer;
   color: #cfd8e3;
-  transition: 0.3s ease;
 }
 
-.policy-list li:hover {
+.footer-links li:hover {
   color: #1FA89A;
   transform: translateX(5px);
 }
 
-/* ===============================
-   BOTTOM LINE
-================================= */
+/* ===== CONTACT ===== */
+.footer-contact p {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+  color: #cfd8e3;
+}
 
+/* ===== BOTTOM ===== */
 .footer-bottom {
-  margin-top: 60px;
+  margin-top: 70px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255,255,255,0.1);
   text-align: center;
   font-size: 14px;
-  opacity: 0.6;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 20px;
+  opacity: 0.7;
 }
-/* ===============================
-   SOCIAL ICONS
-================================= */
+.footer-policies {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
+/* Normal + visited link color (purple remove) */
+.footer-policies a,
+.footer-policies a:link,
+.footer-policies a:visited {
+  color: #1FA89A;          /* normal theme color */
+  text-decoration: none;
+}
+
+/* Hover */
+.footer-policies a:hover {
+  color: #0b5ed7;          /* blue */
+}
+
+/* Active / focus (optional, clean) */
+.footer-policies a:active,
+.footer-policies a:focus {
+  color: #1FA89A;
+}
+/* ===== SOCIAL ===== */
 .social-row {
   display: flex;
-  gap: 15px;
-  margin-top: 25px;
+  gap: 14px;
+  margin-top: 20px;
 }
 
 .social-row a {
@@ -174,35 +158,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
-  transition: 0.4s ease;
-  font-size: 14px;
+  transition: 0.3s;
 }
 
 .social-row a:hover {
   background: linear-gradient(90deg, #1E63B5, #1FA89A);
-  box-shadow: 0 0 15px rgba(31,168,154,0.6);
   transform: translateY(-4px);
 }
 
-
-/* ===============================
-   RESPONSIVE
-================================= */
-
-@media (max-width: 768px) {
-
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
   .footer-container {
-    flex-direction: column;
-    gap: 40px;
+    grid-template-columns: 1fr;
   }
 
-  .subscribe-box {
+  .footer-cta {
     flex-direction: column;
-    border-radius: 10px;
-  }
-
-  .subscribe-box button {
-    padding: 14px;
   }
 }

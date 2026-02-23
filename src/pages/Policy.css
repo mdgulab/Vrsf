@@ -1,0 +1,138 @@
+/* ==================================================
+   GLOBAL WRAPPER
+================================================== */
+
+.policy-page {
+  display: flex;
+  gap: 40px;
+  padding: 60px;
+  background: #f6fbff;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+/* ==================================================
+   HERO HEADER (BLUE + TEAL GRADIENT)
+================================================== */
+
+.policy-hero {
+  background: linear-gradient(135deg, #0b5ed7, #1abc9c);
+  color: #ffffff;
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.policy-hero h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.policy-hero p {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+/* ==================================================
+   SIDEBAR (DESKTOP / TABLET ONLY)
+================================================== */
+
+.policy-sidebar {
+  width: 260px;
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 14px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+  border: 1px solid rgba(46, 204, 113, 0.35); /* light green accent */
+}
+
+/* Sidebar links */
+.policy-sidebar a {
+  display: block;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  color: #0b2b3a; /* deep blue-black */
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+/* Hover state – light green/teal feel */
+.policy-sidebar a:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(46, 204, 113, 0.15),
+    rgba(26, 188, 156, 0.15)
+  );
+  color: #0a5c6d;
+}
+
+/* Active state – blue + teal gradient */
+.policy-sidebar a.active {
+  background: linear-gradient(135deg, #0b5ed7, #1abc9c);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(26, 188, 156, 0.45);
+}
+
+/* ==================================================
+   CONTENT AREA
+================================================== */
+
+.policy-content {
+  flex: 1;
+}
+
+/* Policy cards */
+.policy-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 16px;
+  margin-bottom: 28px;
+  border-left: 4px solid #2ecc71; /* light green stroke */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.policy-card h3 {
+  color: #0b5ed7;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.policy-card p {
+  color: #2c3e50;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ==================================================
+   RESPONSIVE (MOBILE)
+================================================== */
+
+@media (max-width: 900px) {
+  .policy-page {
+    flex-direction: column;
+    padding: 30px 18px;
+  }
+
+  /* 🔥 Sidebar hidden on mobile */
+  .policy-sidebar {
+    display: none;
+  }
+
+  .policy-content {
+    width: 100%;
+  }
+
+  .policy-hero h1 {
+    font-size: 26px;
+  }
+
+  .policy-hero p {
+    font-size: 14px;
+  }
+}

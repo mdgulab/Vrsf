@@ -16,9 +16,9 @@ export default function Home() {
       <VisionMissionSection/>
       <JoinSection/>
       <InitiativesSection/>
-      <DonateBanner/>
+      {/* <DonateBanner/> */}
       
-      <Campaigns />
+      {/* <Campaigns /> */}
    
     </>
   );

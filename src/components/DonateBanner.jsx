@@ -21,7 +21,7 @@ export default function DonateBanner() {
           to communities striving for a better tomorrow.
         </p>
 
-        <button className="donate-cta">
+        <button className="donate-cta" onClick={() => window.location.href = "https://pages.razorpay.com/veyonicrisesocialfoundation"}>
           Support the Cause →
         </button>
       </div>

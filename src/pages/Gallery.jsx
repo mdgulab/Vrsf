@@ -1,3 +1,4 @@
+import DonateBanner from "../components/DonateBanner";
 import "./Gallery.css";
 
 export default function Gallery() {
@@ -16,9 +17,15 @@ export default function Gallery() {
         {images.map((img, index) => (
           <div key={index} className="gallery-item">
             <img src={img} alt="Gallery" />
+            
           </div>
         ))}
+        
       </div>
+      
+            
     </section>
+    
   );
+  
 }

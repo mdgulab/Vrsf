@@ -9,6 +9,8 @@ import Contact from "./pages/Contact";
 import Initiatives from "./pages/Initiatives";
 import EventDetails from "./pages/EventDetails";
 import OurTeam from "./pages/OurTeam";
+import PolicyLayout from "./pages/PolicyLayout";
+
 
 
 function App() {
@@ -22,16 +24,12 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/Initiatives" element={<Initiatives />}/>
-
-        
         <Route path="/events/:id" element={<EventDetails/>} />
-          <Route path="/ourteam" element={<OurTeam/>} />
-
-
+        <Route path="/ourteam" element={<OurTeam/>} />
+        <Route path="/policies/:policyType" element={<PolicyLayout/>} />
       </Routes>
       <Footer />
     </BrowserRouter>
   );
 }
-
 export default App;

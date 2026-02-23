@@ -7,16 +7,25 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setAboutOpen(false);
+  };
+
   return (
+    
     <header className="navbar-modern">
+      
       <div className="nav-wrapper">
 
-        <div className="logo">
-          <img src="/logo.png" alt="VRSF Logo" />
-        </div>
+        
+
+        <NavLink to="/" className="logo" onClick={() => setMenuOpen(false)}>
+  <img src="/header/image.png" alt="VRSF Logo" />
+</NavLink>
 
         <nav className={`nav-menu ${menuOpen ? "open" : ""}`}>
-          <NavLink to="/" end>Home</NavLink>
+          <NavLink to="/" end onClick={closeMenu}>Home</NavLink>
 
           <div className="dropdown-item">
             <div
@@ -28,22 +37,29 @@ export default function Navbar() {
 
             {aboutOpen && (
               <div className="dropdown-menu">
-                <NavLink to="/about">About VRSF</NavLink><br />
-                <br />
-                <NavLink to="/ourteam">Our Team</NavLink>
+                <NavLink to="/about" onClick={closeMenu}>
+                  About VRSF
+                </NavLink>
+                <NavLink to="/ourteam" onClick={closeMenu}>
+                  Our Team
+                </NavLink>
               </div>
             )}
           </div>
 
-          <NavLink to="/Initiatives">Our Initiatives</NavLink>
-          <NavLink to="/events">Events</NavLink>
-          <NavLink to="/gallery">Gallery</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/Initiatives" onClick={closeMenu}>
+            Our Initiatives
+          </NavLink>
+          <NavLink to="/events" onClick={closeMenu}>Events</NavLink>
+          <NavLink to="/gallery" onClick={closeMenu}>Gallery</NavLink>
+          <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
 
-          <button className="support-btn">Support Us</button>
+          <button className="support-btn" onClick={() => window.location.href = "https://pages.razorpay.com/veyonicrisesocialfoundation"}>
+            Support Us
+          </button>
         </nav>
 
-        {/* Burger menu – ONLY mobile/tablet */}
+        {/* Mobile Toggle */}
         <div className="toggle-btn" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
