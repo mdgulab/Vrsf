@@ -5,8 +5,7 @@ const initiatives = [
   {
     id: "01",
     title: "Social Awareness Programs",
-    image:
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac",
+    image: "/initiativs/SocialAwarenes.png",
     short:
       "Promoting awareness about education, equality, and social responsibility.",
     points: [
@@ -16,14 +15,12 @@ const initiatives = [
       "Interactive village-level sessions",
     ],
     description:
-      "Through village visits, workshops, and group discussions, we engage directly with rural communities to raise awareness about education, equality, civic duties, and social harmony. These programs aim to create informed and responsible citizens who actively contribute to society.",
-    icon: "🌍",
+      "Through village visits, workshops, and group discussions, we engage directly with rural communities to raise awareness about education, equality, civic duties, and social harmony.",
   },
   {
     id: "02",
     title: "Financial Literacy & Facilitation",
-    image:
-      "https://images.unsplash.com/photo-1604594849809-dfedbc827105",
+    image: "/initiativs/financialLit.png",
     short:
       "Helping individuals understand savings, banking, loans, and schemes.",
     points: [
@@ -33,16 +30,13 @@ const initiatives = [
       "Loan facilitation guidance",
     ],
     description:
-      "Our financial literacy initiatives educate communities about managing money, understanding banking services, avoiding digital fraud, and accessing government schemes. We also assist individuals in understanding loan processes and financial documentation.",
-    icon: "💰",
+      "Our financial literacy initiatives educate communities about managing money, understanding banking services, and avoiding digital fraud.",
   },
   {
     id: "03",
     title: "Health & Hygiene Camps",
-    image:
-      "https://images.unsplash.com/photo-1584515933487-779824d29309",
-    short:
-      "Providing healthcare support and hygiene awareness.",
+    image: "/initiativs/healthHyg.png",
+    short: "Providing healthcare support and hygiene awareness.",
     points: [
       "Free medical checkups",
       "Doctor consultations",
@@ -50,16 +44,13 @@ const initiatives = [
       "Hygiene and sanitation awareness",
     ],
     description:
-      "We organize health camps offering free checkups, consultations, and medicines. Alongside medical care, we educate families about hygiene, nutrition, and disease prevention to ensure long-term community well-being.",
-    icon: "🩺",
+      "We organize health camps offering free checkups and educate families about hygiene and nutrition.",
   },
   {
     id: "04",
     title: "Environmental Care Drives",
-    image:
-      "https://images.unsplash.com/photo-1501004318641-b39e6451bec6",
-    short:
-      "Encouraging sustainable and eco-friendly practices.",
+    image: "/initiativs/EnvDrive.png",
+    short: "Encouraging sustainable and eco-friendly practices.",
     points: [
       "Tree plantation drives",
       "Cleanliness campaigns",
@@ -67,16 +58,13 @@ const initiatives = [
       "Nature conservation education",
     ],
     description:
-      "Our environmental drives focus on spreading awareness about sustainability, tree protection, cleanliness, and conservation of natural resources, encouraging communities to adopt eco-friendly habits.",
-    icon: "🌱",
+      "Our environmental drives focus on sustainability, cleanliness, and conservation of natural resources.",
   },
   {
     id: "05",
     title: "Child Safety & Protection",
-    image:
-      "https://images.unsplash.com/photo-1504151932400-72d4384f04b3",
-    short:
-      "Ensuring safety, rights, and well-being of children.",
+    image: "/initiativs/childEducation.png",
+    short: "Ensuring safety, rights, and well-being of children.",
     points: [
       "Child rights awareness",
       "Safe learning environments",
@@ -84,84 +72,74 @@ const initiatives = [
       "Protection from exploitation",
     ],
     description:
-      "This initiative focuses on educating parents and communities about child safety, rights, and the importance of a secure environment. Our aim is to protect children and ensure their holistic development.",
-    icon: "🧒",
+      "We educate parents and communities about child safety, rights, and secure environments.",
   },
   {
     id: "06",
     title: "Skill Development for Youth",
-    image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
-    short:
-      "Equipping youth with skills for modern careers.",
+    image: "/initiativs/SkillDev.png",
+    short: "Equipping youth with skills for modern careers.",
     points: [
       "Career guidance sessions",
       "Digital and technical skills",
-      "Introduction to modern technologies",
+      "Modern technology exposure",
       "Alternative career pathways",
     ],
     description:
-      "We support youth by offering skill development programs, career guidance, and exposure to modern technologies. This helps them build employable skills and explore multiple career opportunities.",
-    icon: "🚀",
+      "We offer skill development programs and career guidance to help youth become employable.",
   },
 ];
 
 export default function Initiatives() {
-  const [activeId, setActiveId] = useState(null);
-
-  const handleFlip = (id) => {
-    setActiveId(activeId === id ? null : id);
-  };
+  const [openId, setOpenId] = useState(null);
 
   return (
-    <section className="initiatives-page">
-      <div className="initiatives-hero">
-        <h1>Our Key Initiatives</h1>
+    <section className="corp-initiatives">
+      {/* HERO */}
+      <header className="corp-hero">
+        <span className="hero-tag">OUR INITIATIVES</span>
+        <h1>Driving Sustainable Social Impact</h1>
         <p>
-          Click on an initiative to explore its impact and detailed
-          description.
+          Purpose-driven programs aligned with community needs and long-term
+          development goals.
         </p>
-      </div>
+      </header>
 
-      <div className="initiatives-grid">
+      {/* GRID */}
+      <div className="corp-grid">
         {initiatives.map((item) => (
-          <div
+          <article
             key={item.id}
-            className={`flip-card ${
-              activeId === item.id ? "flipped" : ""
-            }`}
-            onClick={() => handleFlip(item.id)}
+            className={`corp-card ${openId === item.id ? "active" : ""}`}
           >
-            <div className="flip-inner">
-              {/* FRONT */}
-              <div
-                className="flip-front"
-                style={{ backgroundImage: `url(${item.image})` }}
+            <div
+              className="corp-thumb"
+              style={{ backgroundImage: `url(${item.image})` }}
+            />
+
+            <div className="corp-content">
+              <h3>{item.title}</h3>
+              <p className="corp-short">{item.short}</p>
+
+              <button
+                className="corp-btn"
+                onClick={() =>
+                  setOpenId(openId === item.id ? null : item.id)
+                }
               >
-                <div className="overlay" />
-                <div className="front-content">
-                  <span className="icon">{item.icon}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.short}</p>
-                  <span className="hint">Click to read more</span>
-                </div>
-              </div>
+                {openId === item.id ? "Hide Details" : "View Details"}
+              </button>
 
-              {/* BACK */}
-              <div className="flip-back">
-                <h3>{item.title}</h3>
-
+              <div className="corp-details">
                 <ul>
-                  {item.points.map((point, index) => (
-                    <li key={index}>{point}</li>
+                  {item.points.map((p, i) => (
+                    <li key={i}>{p}</li>
                   ))}
                 </ul>
-
-                <p className="back-desc">{item.description}</p>
-                <span className="hint">Click to go back</span>
+                <p className="corp-desc">{item.description}</p>
               </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>

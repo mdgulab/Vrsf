@@ -6,7 +6,7 @@
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(0, 102, 153, 0.75),
+    rgba(30, 99, 181, 0.75),
     rgba(31, 168, 154, 0.75)
   );
   backdrop-filter: blur(6px);
@@ -14,6 +14,7 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  padding: 16px; /* mobile safe */
 }
 
 /* ===============================
@@ -23,24 +24,34 @@
   background: #ffffff;
   width: 100%;
   max-width: 520px;
-  padding: 36px;
+  max-height: 92vh;              /* 🔑 mobile height safe */
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
   border-radius: 20px;
   position: relative;
-  z-index: 2; /* ✅ added */
+  overflow: hidden;              /* border mask safe */
+  animation: premiumZoom 0.4s ease;
 }
 
+/* Gradient Border */
 .volunteer-popup::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 20px;
   padding: 1.5px;
-  background: linear-gradient(135deg, #1fa89a, #006699, #7dffb3);
+  background: linear-gradient(
+    135deg,
+    #1fa89a,
+    #1e63b5,
+    #7ac943
+  );
   -webkit-mask: linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  pointer-events: none; /* ✅ MOST IMPORTANT */
+  pointer-events: none;
 }
 
 /* ===============================
@@ -48,7 +59,7 @@
 ================================ */
 @keyframes premiumZoom {
   from {
-    transform: translateY(20px) scale(0.94);
+    transform: translateY(20px) scale(0.96);
     opacity: 0;
   }
   to {
@@ -62,20 +73,31 @@
 ================================ */
 .volunteer-popup h2 {
   text-align: center;
-  font-size: 26px;
-  margin-bottom: 25px;
-  color: #0b2c3d;
+  font-size: 24px;
+  margin-bottom: 18px;
+  color: #0f2c55;
   font-weight: 700;
+  flex-shrink: 0;
 }
 
 .volunteer-popup h2::after {
   content: "";
   display: block;
-  width: 60px;
+  width: 56px;
   height: 3px;
   margin: 10px auto 0;
-  background: linear-gradient(90deg, #1fa89a, #006699);
+  background: linear-gradient(90deg, #1fa89a, #1e63b5);
   border-radius: 10px;
+}
+
+/* ===============================
+   FORM (MAIN FIX)
+================================ */
+.volunteer-popup form {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;               /* 🔑 scroll here */
+  padding-right: 4px;
 }
 
 /* ===============================
@@ -117,7 +139,8 @@
 ================================ */
 .volunteer-popup textarea {
   resize: none;
-  height: 100px;
+  min-height: 100px;
+  margin-bottom: 18px; /* 🔑 no cut */
 }
 
 /* ===============================
@@ -125,26 +148,23 @@
 ================================ */
 .submit-btn {
   width: 100%;
-  padding: 15px;
-  margin-top: 10px;
-  border-radius: 30px;
+  padding: 14px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  border-radius: 28px;
   border: none;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   color: #ffffff;
-  background: linear-gradient(
-    135deg,
-    #1fa89a,
-    #006699
-  );
-  box-shadow: 0 12px 30px rgba(0, 102, 153, 0.35);
+  background: linear-gradient(135deg, #1fa89a, #1e63b5);
+  box-shadow: 0 10px 26px rgba(30, 99, 181, 0.35);
   transition: all 0.3s ease;
 }
 
 .submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 45px rgba(0, 102, 153, 0.45);
+  box-shadow: 0 16px 38px rgba(30, 99, 181, 0.45);
 }
 
 /* ===============================
@@ -156,8 +176,9 @@
   right: 16px;
   font-size: 22px;
   cursor: pointer;
-  color: #0b2c3d;
+  color: #0f2c55;
   transition: color 0.2s ease;
+  z-index: 3;
 }
 
 .close-btn:hover {
@@ -165,11 +186,20 @@
 }
 
 /* ===============================
-   Responsive
+   Tablet
+================================ */
+@media (max-width: 900px) {
+  .volunteer-popup {
+    padding: 28px 24px;
+  }
+}
+
+/* ===============================
+   Mobile
 ================================ */
 @media (max-width: 600px) {
   .volunteer-popup {
-    padding: 26px 22px;
+    padding: 22px 20px;
     border-radius: 16px;
   }
 
@@ -178,6 +208,15 @@
   }
 
   .volunteer-popup h2 {
-    font-size: 22px;
+    font-size: 21px;
+  }
+}
+
+/* ===============================
+   Small Height Devices
+================================ */
+@media (max-height: 650px) {
+  .volunteer-popup {
+    max-height: 95vh;
   }
 }

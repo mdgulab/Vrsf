@@ -24,7 +24,7 @@
 }
 
 /* ===============================
-   OFFICE STRIP (NEW)
+   OFFICE STRIP
 ================================= */
 
 .office-strip {
@@ -90,6 +90,12 @@
   color: #666;
 }
 
+.contact-form *,
+.contact-form *::before,
+.contact-form *::after {
+  box-sizing: border-box;
+}
+
 .row {
   display: flex;
   gap: 20px;
@@ -101,7 +107,7 @@ textarea {
   padding: 15px;
   border-radius: 14px;
   border: 1px solid #ddd;
-  font-size: 14px;
+  font-size: 15px;
   margin-bottom: 20px;
 }
 
@@ -145,13 +151,13 @@ textarea:focus {
 ================================= */
 
 @media (max-width: 992px) {
-
   .office-strip {
     grid-template-columns: 1fr;
   }
 
   .row {
     flex-direction: column;
+    gap: 0;
   }
 
   .contact-form {
@@ -160,5 +166,34 @@ textarea:focus {
 
   .contact-hero h1 {
     font-size: 34px;
+  }
+}
+
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form-wrapper {
+    padding: 0 16px 80px;
+  }
+
+  .contact-form {
+    padding: 30px 20px;
+    border-radius: 22px;
+  }
+
+  input,
+  textarea {
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .contact-btn {
+    padding: 16px;
+    font-size: 15px;
   }
 }

@@ -1,9 +1,14 @@
+/* ===============================
+   SECTION BASE
+================================= */
 .vm-section {
-  padding: 100px 20px;
-  background: linear-gradient(180deg, #f4f6f9 0%, #ffffff 100%);
+  padding: 110px 20px;
+  background: linear-gradient(180deg, #f4f7fb 0%, #ffffff 100%);
 }
 
-/* Container */
+/* ===============================
+   CONTAINER
+================================= */
 .vm-container {
   max-width: 1200px;
   margin: auto;
@@ -12,52 +17,87 @@
   justify-content: center;
 }
 
-/* Cards */
+/* ===============================
+   CARDS
+================================= */
 .vm-card {
   flex: 1;
-  background: #ffffff;
-  padding: 40px 30px;
-  border-radius: 20px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 22px;
+  padding: 50px 35px;
   text-align: center;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
-  transition: 0.3s ease;
+  overflow: hidden;
+  color: #ffffff;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.205);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .vm-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 70px rgba(0,0,0,0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.14);
 }
 
+/* ===============================
+   BRAND OVERLAY (KEY PART)
+================================= */
+.vm-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 99, 181, 0.9),
+    rgba(31, 168, 154, 0.9)
+  );
+  z-index: 1;
+}
+
+/* ===============================
+   CONTENT ABOVE OVERLAY
+================================= */
+.vm-card > * {
+  position: relative;
+
+  z-index: 2;
+}
+
+/* ICON */
 .vm-icon {
-  font-size: 40px;
-  margin-bottom: 20px;
-  color: #1E63B5;
+  font-size: 42px;
+  margin-bottom: 18px;
+  color: #eafff9;
 }
 
+/* TITLE */
 .vm-card h3 {
-  font-size: 24px;
-  margin-bottom: 15px;
-  color: #1E63B5;
+  font-size: 26px;
+  margin-bottom: 14px;
+  font-weight: 600;
 }
 
+/* TEXT */
 .vm-card p {
   font-size: 16px;
-  line-height: 1.7;
-  color: #555;
+  line-height: 1.75;
+  opacity: 0.95;
 }
 
-/* VALUES */
+/* ===============================
+   VALUES SECTION
+================================= */
 .values-section {
-  margin-top: 80px;
+  margin-top: 90px;
   text-align: center;
 }
 
 .values-section h2 {
   font-size: 34px;
   margin-bottom: 40px;
-  color: #1E63B5;
+  color: #1e63b5;
 }
 
+/* VALUES GRID */
 .values-grid {
   display: flex;
   justify-content: center;
@@ -70,23 +110,42 @@
   flex-direction: column;
   align-items: center;
   font-size: 18px;
-  color: #333;
+  color: #2f3a48;
   gap: 10px;
 }
 
 .value-item svg {
-  font-size: 30px;
-  color: #1FA89A;
+  font-size: 32px;
+  color: #1fa89a;
 }
 
-/* Responsive */
-
+/* ===============================
+   RESPONSIVE
+================================= */
 @media (max-width: 992px) {
   .vm-container {
     flex-direction: column;
   }
 
+  .vm-card {
+    padding: 45px 30px;
+  }
+
   .values-grid {
     gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .vm-card h3 {
+    font-size: 22px;
+  }
+
+  .vm-card p {
+    font-size: 15px;
+  }
+
+  .values-section h2 {
+    font-size: 28px;
   }
 }

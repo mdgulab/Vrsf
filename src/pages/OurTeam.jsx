@@ -1,166 +1,155 @@
-import { useState } from "react";
-import { FaLinkedin, FaTwitter, FaFacebook } from "react-icons/fa";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import "./OurTeam.css";
 
 export default function OurTeam() {
-  const [activeMember, setActiveMember] = useState(null);
-
-  const teamData = [
-    {
-      category: "Board of Directors",
-      members: [
-        {
-          name: "Mr. Mustafa Kamal",
-          role: "Founder, Managing Director & CEO",
-          image: "/team/mustafa.jpg",
-          short: "Finance & rural development leader.",
-          full:
-            "Brings 10+ years of experience in finance and rural literacy programs. Has led training initiatives and community empowerment projects.",
-          timeline: [
-            { year: "2015", detail: "Started Finance Career" },
-            { year: "2018", detail: "Led Rural Literacy Program" },
-            { year: "2022", detail: "Founded VRSF" }
-          ]
-        },
-        {
-          name: "Dr. Inzam Uddin",
-          role: "Co-Founder, Director & COO",
-          image: "/team/inzamam.jpg",
-          short: "Healthcare & public outreach expert.",
-          full:
-            "Specialized in healthcare programs and grassroots initiatives. Actively involved in public health and community development.",
-          timeline: [
-            { year: "2016", detail: "Doctor of Pharmacy" },
-            { year: "2019", detail: "Public Health Projects" },
-            { year: "2022", detail: "Co-founded VRSF" }
-          ]
-        }
-      ]
-    },
-    {
-      category: "Management Team",
-      members: [
-        {
-          name: "Mr. Md Gulab",
-          role: "IT Head",
-          image: "/team/gulab.jpg",
-          short: "Technology & systems strategist.",
-          full:
-            "Responsible for IT systems, digital growth, and technological implementation within VRSF.",
-          timeline: [
-            { year: "2019", detail: "Joined IT Sector" },
-            { year: "2023", detail: "IT Head at VRSF" }
-          ]
-        },
-        {
-          name: "Md Noor Alam",
-          role: "Media & Communication Head",
-          image: "/team/noor.jpg",
-          short: "Media & public relations specialist.",
-          full:
-            "Handles public communication, social outreach campaigns, and brand representation.",
-          timeline: [
-            { year: "2020", detail: "Media Industry Entry" },
-            { year: "2023", detail: "Joined VRSF Leadership" }
-          ]
-        }
-      ]
-    },
-    {
-      category: "Operations Team",
-      members: [
-        {
-          name: "Mr. Jayram Thakur",
-          role: "Project Manager",
-          short: "Oversees ground operations & execution.",
-          full:
-            "Responsible for managing field projects, coordinating teams, and ensuring execution quality.",
-          timeline: [
-            { year: "2021", detail: "Operations Lead" }
-          ]
-        },
-        {
-          name: "Mr. Ankit Kumar",
-          role: "Project Incharge",
-          short: "On-ground coordination expert.",
-          full:
-            "Supervises rural outreach initiatives and ensures operational efficiency.",
-          timeline: [
-            { year: "2022", detail: "Field Coordination Lead" }
-          ]
-        }
-      ]
-    }
-  ];
-
   return (
-    <section className="team-corporate">
+    <section className="team-page">
 
+      {/* ================= HERO ================= */}
       <div className="team-hero">
-        <h1>Our Leadership & Teams</h1>
-        <p>Meet the professionals driving meaningful impact.</p>
+        <h1>Leadership & Core Team</h1>
+        <p>
+          Experienced professionals committed to building sustainable social
+          impact through structured programs and strong execution.
+        </p>
       </div>
 
-      {teamData.map((section, index) => (
-        <div key={index} className="team-section">
-          <h2>{section.category}</h2>
+      {/* ================= CONTENT ================= */}
+      <div className="team-content">
 
-          <div className="team-grid">
-            {section.members.map((member, i) => (
-              <div key={i} className="team-card">
-                {member.image && (
-                  <img src={member.image} alt={member.name} />
-                )}
-                <h3>{member.name}</h3>
-                <span>{member.role}</span>
-                <p>{member.short}</p>
+        {/* ===== LEADERSHIP (FOUNDER + INZAM) ===== */}
+        <div className="leader-grid">
 
-                <div className="social-row">
-                  <FaLinkedin className="linkedin" />
-                  <FaTwitter />
-                  <FaFacebook />
-                </div>
+          {/* Founder */}
+          <div className="leader-card">
+            <img src="/team/mustafa.jpg" alt="Mr. Mustafa Kamal" />
+            <h3>Mr. Mustafa Kamal</h3>
+            <span className="role">Founder, Managing Director & CEO</span>
+            <span className="exp">10+ Years Experience</span>
 
-                <button onClick={() => setActiveMember(member)}>
-                  Read Full Profile →
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
+            <p>
+              Finance and rural development leader driving large-scale literacy,
+              empowerment and impact programs across communities.
+            </p>
 
-      {/* MODAL */}
-      {activeMember && (
-        <div className="modal-overlay" onClick={() => setActiveMember(null)}>
-          <div
-            className="modal-box"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2>{activeMember.name}</h2>
-            <span>{activeMember.role}</span>
-            <p>{activeMember.full}</p>
-
-            <div className="timeline">
-              {activeMember.timeline.map((item, i) => (
-                <div key={i} className="timeline-row">
-                  <div className="timeline-year">{item.year}</div>
-                  <div className="timeline-text">
-                    {item.detail}
-                  </div>
-                </div>
-              ))}
+            <div className="leader-stats">
+              <div><strong>10+</strong><span>Years</span></div>
+              <div><strong>15+</strong><span>Programs</span></div>
+              <div><strong>3L+</strong><span>People</span></div>
             </div>
 
-            <button
-              className="close-btn"
-              onClick={() => setActiveMember(null)}
-            >
-              Close
-            </button>
+            <div className="social-btns">
+              <a href="#" target="_blank" rel="noreferrer"><FaLinkedin /></a>
+              <a href="#" target="_blank" rel="noreferrer"><FaInstagram /></a>
+            </div>
           </div>
+
+          {/* Inzam (MOVED HERE) */}
+          <div className="leader-card">
+            <img src="/team/inzamam.jpg" alt="Dr. Inzam Uddin" />
+            <h3>Dr. Inzam Uddin</h3>
+            <span className="role">Co-Founder, Director & COO</span>
+            <span className="exp">8+ Years · Healthcare & Ops</span>
+
+            <p>
+              Leads healthcare initiatives, operational planning and grassroots
+              execution with strong public health expertise.
+            </p>
+
+            <div className="social-btns">
+              <a href="#" target="_blank" rel="noreferrer"><FaLinkedin /></a>
+              <a href="#" target="_blank" rel="noreferrer"><FaInstagram /></a>
+            </div>
+          </div>
+
         </div>
-      )}
+
+        {/* ===== CORE TEAM GRID ===== */}
+        <div className="team-grid">
+
+          {/* Sarfaraz (MOVED HERE) */}
+          <div className="team-card">
+            <img src="/team/sarfaraz.jpg" alt="Mr. Md. Sarfaraz Alam" />
+            <h4>Mr. Md. Sarfaraz Alam</h4>
+            <span>Chairman & Joint Secretary</span>
+            <span className="exp">10+ Years · Social Leadership</span>
+            <p>
+              A dedicated social leader and community representative known for
+              integrity, social justice and empowering marginalized communities.
+            </p>
+
+            <div className="social-btns">
+              <a href="#"><FaLinkedin /></a>
+              <a href="#"><FaInstagram /></a>
+            </div>
+          </div>
+
+          <div className="team-card">
+            <img src="/team/gulab.jpg" alt="Mr. Md Gulab" />
+            <h4>Mr. Md Gulab</h4>
+            <span>IT Head</span>
+            <span className="exp">5+ Years · Technology</span>
+            <p>
+              Responsible for digital systems, IT infrastructure and
+              technology-driven growth at VRSF.
+            </p>
+
+            <div className="social-btns">
+              <a href="#"><FaLinkedin /></a>
+              <a href="#"><FaInstagram /></a>
+            </div>
+          </div>
+
+          <div className="team-card">
+            <img src="/team/noor.jpg" alt="Md Noor Alam" />
+            <h4>Md Noor Alam</h4>
+            <span>Media & Communication Head</span>
+            <span className="exp">6+ Years · Media & PR</span>
+            <p>
+              Handles media strategy, communication campaigns and public outreach
+              initiatives.
+            </p>
+
+            <div className="social-btns">
+              <a href="#"><FaLinkedin /></a>
+              <a href="#"><FaInstagram /></a>
+            </div>
+          </div>
+
+          <div className="team-card">
+            <img src="/team/jayram.jpg" alt="Mr. Jayram Thakur" />
+            <h4>Mr. Jayram Thakur</h4>
+            <span>Project Manager</span>
+            <span className="exp">4+ Years · Operations</span>
+            <p>
+              Oversees field operations, project execution and on-ground team
+              coordination.
+            </p>
+
+            <div className="social-btns">
+              <a href="#"><FaLinkedin /></a>
+              <a href="#"><FaInstagram /></a>
+            </div>
+          </div>
+
+          <div className="team-card">
+            <img src="/team/ankit.jpg" alt="Mr. Ankit Kumar" />
+            <h4>Mr. Ankit Kumar</h4>
+            <span>Project Incharge</span>
+            <span className="exp">3+ Years · Field Programs</span>
+            <p>
+              Manages rural outreach initiatives and ensures smooth execution at
+              the grassroots level.
+            </p>
+
+            <div className="social-btns">
+              <a href="#"><FaLinkedin /></a>
+              <a href="#"><FaInstagram /></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
   );
 }

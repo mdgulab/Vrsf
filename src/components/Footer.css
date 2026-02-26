@@ -1,3 +1,43 @@
+/* ===== VIDEO BACKGROUND ===== */
+
+.footer-premium {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Video layer */
+.footer-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Dark overlay for text readability */
+.footer-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 13, 26, 0.85),
+    rgba(7, 13, 26, 0.95)
+  );
+  z-index: 1;
+}
+
+/* Bring content above video */
+.footer-cta,
+.footer-container,
+.footer-bottom {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+
 .footer-premium {
   background: radial-gradient(circle at top, #0f2a44, #070d1a);
   color: #fff;
@@ -5,19 +45,19 @@
   position: relative;
 }
 
-/* ===== TOP CTA ===== */
+/* ===== CTA ===== */
 .footer-cta {
   max-width: 1300px;
   margin: auto;
-  padding: 40px 50px;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.1);
+  padding: 45px 55px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
   display: flex;
   justify-content: space-between;
   gap: 40px;
-  margin-bottom: 80px;
-  backdrop-filter: blur(10px);
+  margin-bottom: 90px;
+  backdrop-filter: blur(14px);
 }
 
 .footer-tag {
@@ -27,13 +67,14 @@
 }
 
 .footer-cta h2 {
-  font-size: 30px;
-  margin: 10px 0;
+  font-size: 32px;
+  margin: 12px 0;
 }
 
 .footer-cta p {
   color: #cfd8e3;
-  max-width: 500px;
+  max-width: 520px;
+  line-height: 1.6;
 }
 
 .footer-cta-actions {
@@ -45,8 +86,8 @@
 .btn-primary {
   background: linear-gradient(90deg, #1E63B5, #1FA89A);
   border: none;
-  padding: 14px 26px;
-  border-radius: 8px;
+  padding: 14px 28px;
+  border-radius: 10px;
   color: #fff;
   cursor: pointer;
 }
@@ -54,8 +95,8 @@
 .btn-outline {
   background: transparent;
   border: 1px solid #1FA89A;
-  padding: 14px 26px;
-  border-radius: 8px;
+  padding: 14px 28px;
+  border-radius: 10px;
   color: #1FA89A;
   cursor: pointer;
 }
@@ -66,7 +107,7 @@
   margin: auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 50px;
+  gap: 60px;
 }
 
 .footer-logo {
@@ -77,6 +118,7 @@
 .footer-small {
   font-size: 13px;
   opacity: 0.7;
+  margin-bottom: 12px;
 }
 
 .footer-col h3 {
@@ -93,11 +135,12 @@
   margin-bottom: 12px;
   cursor: pointer;
   color: #cfd8e3;
+  transition: 0.3s;
 }
 
 .footer-links li:hover {
   color: #1FA89A;
-  transform: translateX(5px);
+  transform: translateX(6px);
 }
 
 /* ===== CONTACT ===== */
@@ -108,71 +151,123 @@
   color: #cfd8e3;
 }
 
-/* ===== BOTTOM ===== */
-.footer-bottom {
-  margin-top: 70px;
-  padding-top: 25px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  text-align: center;
-  font-size: 14px;
-  opacity: 0.7;
-}
-.footer-policies {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-/* Normal + visited link color (purple remove) */
-.footer-policies a,
-.footer-policies a:link,
-.footer-policies a:visited {
-  color: #1FA89A;          /* normal theme color */
-  text-decoration: none;
-}
-
-/* Hover */
-.footer-policies a:hover {
-  color: #0b5ed7;          /* blue */
-}
-
-/* Active / focus (optional, clean) */
-.footer-policies a:active,
-.footer-policies a:focus {
-  color: #1FA89A;
-}
 /* ===== SOCIAL ===== */
 .social-row {
   display: flex;
   gap: 14px;
-  margin-top: 20px;
+  margin-top: 22px;
 }
 
 .social-row a {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: rgba(255,255,255,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.3s;
+  transition: 0.35s;
 }
 
 .social-row a:hover {
   background: linear-gradient(90deg, #1E63B5, #1FA89A);
-  transform: translateY(-4px);
+  transform: translateY(-5px);
+}
+
+/* ===== BOTTOM ===== */
+.footer-bottom {
+  margin-top: 80px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.footer-policies {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.footer-policies a {
+  color: #1FA89A;
+  text-decoration: none;
+}
+
+.footer-policies a:hover {
+  color: #0b5ed7;
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
+
+/* Tablet – 2 columns */
+@media (max-width: 1024px) {
   .footer-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
   }
 
   .footer-cta {
     flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .footer-premium {
+    padding: 100px 20px 40px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .footer-cta {
+    padding: 35px 25px;
+  }
+
+  .footer-cta h2 {
+    font-size: 24px;
+  }
+}
+/* ===== FORCE 2 COLUMNS FOR FOCUS + QUICK LINKS (RESPONSIVE) ===== */
+
+@media (max-width: 900px) {
+
+  /* Footer grid → 2 columns */
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Focus Areas + Quick Links same row */
+  .footer-col:nth-child(2),
+  .footer-col:nth-child(3) {
+    grid-column: span 1;
+  }
+}
+
+/* Mobile fix – still keep them side by side */
+@media (max-width: 600px) {
+
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  /* About + Contact full width */
+  .footer-col:nth-child(1),
+  .footer-col:nth-child(4) {
+    grid-column: span 2;
+  }
+
+  /* Focus + Quick → single row */
+  .footer-col:nth-child(2),
+  .footer-col:nth-child(3) {
+    grid-column: span 1;
   }
 }

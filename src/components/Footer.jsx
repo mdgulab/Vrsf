@@ -24,7 +24,21 @@ export default function Footer() {
 
       <footer className="footer-premium">
 
-        {/* TOP CTA BOX */}
+        {/* 🔥 BACKGROUND VIDEO */}
+        <video
+          className="footer-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="./footer/videoplayback.mp4" type="video/mp4" />
+        </video>
+
+        {/* OVERLAY (for readability) */}
+        <div className="footer-overlay"></div>
+
+        {/* TOP CTA */}
         <div className="footer-cta">
           <div>
             <span className="footer-tag">LET’S WORK TOGETHER</span>
@@ -36,7 +50,15 @@ export default function Footer() {
           </div>
 
           <div className="footer-cta-actions">
-            <button className="btn-primary" onClick={() => window.location.href = "https://pages.razorpay.com/veyonicrisesocialfoundation"}>Donate Now</button>
+            <button
+              className="btn-primary"
+              onClick={() =>
+                window.location.href =
+                  "https://pages.razorpay.com/veyonicrisesocialfoundation"
+              }
+            >
+              Donate Now
+            </button>
             <button className="btn-outline">Join as Volunteer</button>
           </div>
         </div>
@@ -44,7 +66,6 @@ export default function Footer() {
         {/* MAIN GRID */}
         <div className="footer-container">
 
-          {/* ABOUT */}
           <div className="footer-col">
             <img src="/footer/image.png" alt="VRSF Logo" className="footer-logo" />
             <p className="footer-small">
@@ -58,14 +79,13 @@ export default function Footer() {
             </p>
 
             <div className="social-row">
-              <a href="#"><FaFacebookF /></a>
-              <a href="#"><FaInstagram /></a>
-              <a href="#"><FaYoutube /></a>
-              <a href="#"><FaLinkedinIn /></a>
+              <a href="https://www.facebook.com/profile.php?id=61583877177113"><FaFacebookF /></a>
+              <a href="https://www.instagram.com/veyonicrise/"><FaInstagram /></a>
+              <a href="https://www.youtube.com/@VeyonicRiseSocialFoundation"><FaYoutube /></a>
+              <a href="https://www.linkedin.com/in/veyonicrise-social-foundation-767b91391/"><FaLinkedinIn /></a>
             </div>
           </div>
 
-          {/* FOCUS AREAS */}
           <div className="footer-col">
             <h3>Our Focus Areas</h3>
             <ul className="footer-links">
@@ -78,7 +98,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* QUICK LINKS */}
           <div className="footer-col">
             <h3>Quick Links</h3>
             <ul className="footer-links">
@@ -90,31 +109,27 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* CONTACT */}
           <div className="footer-col">
             <h3>Contact Us</h3>
-
             <div className="footer-contact">
-              <p><FaMapMarkerAlt /> India</p>
+              <p><FaMapMarkerAlt /> H. No: 115, 3rd Floor, Petrol Line Nosha Patna, INDIA – 801505</p>
               <p><FaEnvelope /> support@vrsf.org</p>
-              <p><FaPhoneAlt /> +91 9XXXXXXXXX</p>
+              <p><FaPhoneAlt /> +91 7979969125</p>
             </div>
           </div>
 
         </div>
 
-        {/* BOTTOM BAR */}
+        {/* BOTTOM */}
         <div className="footer-bottom">
           © {new Date().getFullYear()} VRSF. All Rights Reserved.
-       
-
-<div className="footer-policies">
-  <Link to="/policies/privacy">Privacy Policy</Link>
-  <Link to="/policies/terms">Terms of Use</Link>
-  <Link to="/policies/refund">Refund Policy</Link>
-  <Link to="/policies/disclaimer">Disclaimer</Link>
-  <Link to="/policies/child">Data Protection</Link>
-</div>
+          <div className="footer-policies">
+            <Link to="/policies/privacy">Privacy Policy</Link>
+            <Link to="/policies/terms">Terms of Use</Link>
+            <Link to="/policies/refund">Refund Policy</Link>
+            <Link to="/policies/disclaimer">Disclaimer</Link>
+            <Link to="/policies/child">Data Protection</Link>
+          </div>
         </div>
 
       </footer>

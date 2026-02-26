@@ -93,16 +93,16 @@
   background: linear-gradient(120deg, #eef4fb, #f9fbfd);
 }
 
-.vm-card {
-  background: white;
+.vm-card1 {
+  background: rgb(255, 255, 255);
   padding: 50px;
   border-radius: 25px;
   max-width: 500px;
-  box-shadow: 0 25px 80px rgba(0,0,0,0.06);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.116);
   text-align: center;
 }
 
-.vm-card h2 {
+.vm-card1 h2 {
   margin-bottom: 20px;
   color: #1E63B5;
 }

@@ -254,3 +254,31 @@
 .status-badge.upcoming {
   background: #1FA89A;
 }
+.event-info {
+  background: #f9fbfd;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.event-info p {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.event-details h3 {
+  margin: 35px 0 12px;
+  color: #1E63B5;
+}
+
+.event-details ul {
+  padding-left: 20px;
+  line-height: 1.7;
+}
+
+.pdf-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 25px 0 50px;
+}

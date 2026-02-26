@@ -83,7 +83,7 @@ export default function About() {
       {/* VISION & MISSION */}
       <div className="vision-mission">
 
-        <div className="vm-card">
+        <div className="vm-card1">
           <FaEye className="vm-icon" />
           <h2>Vision</h2>
           <p>
@@ -92,7 +92,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="vm-card">
+        <div className="vm-card1">
           <FaBullseye className="vm-icon" />
           <h2>Mission</h2>
           <p>
