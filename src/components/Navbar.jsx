@@ -33,7 +33,7 @@ export default function Navbar() {
     <header className={`navbar-modern ${hideNav ? "nav-hide" : ""}`}>
       <div className="nav-wrapper">
         <NavLink to="/" className="logo" onClick={closeMenu}>
-          <img src="/header/image.png" alt="VRSF Logo" />
+          <img src="/header/logo.jpeg" alt="VRSF Logo" />
         </NavLink>
 
         <nav className={`nav-menu ${menuOpen ? "open" : ""}`}>

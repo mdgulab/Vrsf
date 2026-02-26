@@ -78,7 +78,7 @@ export default function Footer() {
               skill development initiatives.
             </p>
 
-            <div className="social-row">
+            <div className="social-row1">
               <a href="https://www.facebook.com/profile.php?id=61583877177113"><FaFacebookF /></a>
               <a href="https://www.instagram.com/veyonicrise/"><FaInstagram /></a>
               <a href="https://www.youtube.com/@VeyonicRiseSocialFoundation"><FaYoutube /></a>
