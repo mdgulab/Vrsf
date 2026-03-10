@@ -3,6 +3,7 @@ import "./VolunteerPopup.css";
 
 const VolunteerPopup = forwardRef((props, ref) => {
   const [open, setOpen] = useState(false);
+
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -24,54 +25,38 @@ const VolunteerPopup = forwardRef((props, ref) => {
   }));
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const whatsappNumber = "917979969125"; // 🔴 apna WhatsApp number
-
-    const message = `*New Volunteer Registration* 👇
-
-👤 Name: ${form.name}
-📞 Phone: ${form.phone}
-📧 Email: ${form.email}
-🎂 Age: ${form.age}
-⚧ Gender: ${form.gender}
-
-📍 City: ${form.city}
-🗺 State: ${form.state}
-
-🤝 Area of Interest: ${form.interest}
-🕒 Availability: ${form.availability}
-💻 Mode: ${form.mode}
-
-📝 Experience:
-${form.experience}`;
-
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      message
-    )}`;
-
-    window.open(url, "_blank");
-
-    setOpen(false);
     setForm({
-      name: "",
-      phone: "",
-      email: "",
-      age: "",
-      gender: "",
-      city: "",
-      state: "",
-      interest: "",
-      availability: "",
-      mode: "",
-      experience: "",
+      ...form,
+      [e.target.name]: e.target.value,
     });
   };
 
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("https://vrsf.org.in/api/volunteer.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+      mode: "cors",
+    });
+
+    const data = await response.json();
+
+    if (data.status === "success") {
+      alert("Volunteer registered successfully");
+    } else {
+      alert(data.message);
+    }
+
+  } catch (error) {
+    console.error("Submit Error:", error);
+    alert("Server connection error");
+  }
+};
   if (!open) return null;
 
   return (
@@ -83,11 +68,14 @@ ${form.experience}`;
 
         <form onSubmit={handleSubmit}>
           <input name="name" placeholder="Full Name" value={form.name} onChange={handleChange} required />
+
           <input name="phone" placeholder="Mobile Number" value={form.phone} onChange={handleChange} required />
+
           <input name="email" type="email" placeholder="Email Address" value={form.email} onChange={handleChange} required />
 
           <div className="two-col">
             <input name="age" placeholder="Age" value={form.age} onChange={handleChange} required />
+
             <select name="gender" value={form.gender} onChange={handleChange} required>
               <option value="">Gender</option>
               <option>Male</option>
@@ -98,6 +86,7 @@ ${form.experience}`;
 
           <div className="two-col">
             <input name="city" placeholder="City" value={form.city} onChange={handleChange} required />
+
             <input name="state" placeholder="State" value={form.state} onChange={handleChange} required />
           </div>
 
@@ -134,7 +123,7 @@ ${form.experience}`;
           />
 
           <button type="submit" className="submit-btn">
-            Submit & Send on WhatsApp
+            Submit
           </button>
         </form>
       </div>

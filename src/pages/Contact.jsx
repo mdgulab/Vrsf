@@ -1,7 +1,9 @@
+
 import { useState } from "react";
 import "./Contact.css";
 
 export default function Contact() {
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -18,25 +20,49 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { firstName, lastName, email, phone, subject, message } = formData;
+    try {
 
-    const whatsappMessage = `
-Name: ${firstName} ${lastName}
-Email: ${email}
-Phone: ${phone}
-Subject: ${subject}
-Message: ${message}
-    `;
+      const response = await fetch(
+        "https://vrsf.org.in/api/contact.php",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formData)
+        }
+      );
 
-    const phoneNumber = "917979969125";
+      const data = await response.json();
 
-    window.open(
-      `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`,
-      "_blank"
-    );
+      if (data.status === "success") {
+
+        alert("Message sent successfully!");
+
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: ""
+        });
+
+      } else {
+
+        alert("Something went wrong");
+
+      }
+
+    } catch (error) {
+
+      console.error(error);
+      alert("Server error");
+
+    }
   };
 
   return (
@@ -50,6 +76,7 @@ Message: ${message}
 
       {/* OFFICE INFO */}
       <div className="office-strip">
+
         <div className="office-glass">
           <span className="tag">Regional Office</span>
           <h3>Patna, Bihar</h3>
@@ -65,18 +92,24 @@ Message: ${message}
           <p>📞 +91 6201732721</p>
           <p>✉️ contact@vrsf.org.in</p>
         </div>
+
       </div>
 
       {/* FORM */}
       <div className="contact-form-wrapper">
+
         <div className="contact-form">
+
           <h2>Send Us a Message</h2>
+
           <p className="form-sub">
-            Fill the form and we’ll respond quickly via WhatsApp.
+            Fill the form and we will contact you soon.
           </p>
 
           <form onSubmit={handleSubmit}>
+
             <div className="row">
+
               <input
                 type="text"
                 name="firstName"
@@ -85,6 +118,7 @@ Message: ${message}
                 value={formData.firstName}
                 onChange={handleChange}
               />
+
               <input
                 type="text"
                 name="lastName"
@@ -93,9 +127,11 @@ Message: ${message}
                 value={formData.lastName}
                 onChange={handleChange}
               />
+
             </div>
 
             <div className="row">
+
               <input
                 type="email"
                 name="email"
@@ -104,6 +140,7 @@ Message: ${message}
                 value={formData.email}
                 onChange={handleChange}
               />
+
               <input
                 type="tel"
                 name="phone"
@@ -112,6 +149,7 @@ Message: ${message}
                 value={formData.phone}
                 onChange={handleChange}
               />
+
             </div>
 
             <input
@@ -134,14 +172,17 @@ Message: ${message}
 
             <label className="checkbox">
               <input type="checkbox" required />
-              I agree to be contacted via WhatsApp
+              I agree to be contacted
             </label>
 
             <button type="submit" className="contact-btn">
-              Send via WhatsApp →
+              Send Message →
             </button>
+
           </form>
+
         </div>
+
       </div>
 
     </section>
