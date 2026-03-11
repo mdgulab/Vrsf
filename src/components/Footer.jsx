@@ -89,12 +89,12 @@ export default function Footer() {
           <div className="footer-col">
             <h3>Our Focus Areas</h3>
             <ul className="footer-links">
+              <li>Health & Hygiene </li>
+              <li>Women & Child Welfare</li>
+              <li>Environment Care</li>
+              <li>Skill Development</li>
               <li>Social Awareness</li>
               <li>Financial Literacy</li>
-              <li>Health & Hygiene Camps</li>
-              <li>Environmental Drives</li>
-              <li>Child Safety</li>
-              <li>Skill Development</li>
             </ul>
           </div>
 
