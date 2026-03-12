@@ -26,7 +26,7 @@ export default function Contact() {
     try {
 
       const response = await fetch(
-        "https://vrsf.org.in/api/contact.php",
+        "https://vrsf.org.in/backend-project/api/contact.php",
         {
           method: "POST",
           headers: {

@@ -1,100 +1,96 @@
-import { useState } from "react";
+
+import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
-import eventsData from "../data/eventsData";
+import { getEvents } from "../data/eventsData";
 import "../styles/Events.css";
 
-export default function Events() {
+export default function Events(){
 
-  const [statusFilter, setStatusFilter] = useState("All");
-  const [yearFilter, setYearFilter] = useState("All");
+const [events,setEvents] = useState([]);
 
-  const today = new Date();
+useEffect(()=>{
 
-  const getStatus = (date) => {
-    return new Date(date) > today ? "Upcoming" : "Completed";
-  };
+async function loadEvents(){
 
-  const filteredEvents = eventsData.filter((event) => {
-    const eventYear = new Date(event.date).getFullYear().toString();
-    const status = getStatus(event.date);
+const data = await getEvents();
 
-    return (
-      (statusFilter === "All" || status === statusFilter) &&
-      (yearFilter === "All" || eventYear === yearFilter)
-    );
-  });
+setEvents(data);
 
-  const years = [
-    "All",
-    ...new Set(eventsData.map(e =>
-      new Date(e.date).getFullYear().toString()
-    ))
-  ];
+}
 
-  return (
-    <section className="events-page">
+loadEvents();
 
-      <div className="events-hero">
-        <h1>Our Events</h1>
-        <p>Explore our community initiatives and impact activities.</p>
-      </div>
+},[]);
 
-      {/* FILTER BAR */}
-      <div className="filter-bar">
+const today = new Date();
 
-        <select onChange={(e) => setStatusFilter(e.target.value)}>
-          <option value="All">All Status</option>
-          <option value="Upcoming">Upcoming</option>
-          <option value="Completed">Completed</option>
-        </select>
+function getStatus(date){
 
-        <select onChange={(e) => setYearFilter(e.target.value)}>
-          {years.map((year, index) => (
-            <option key={index} value={year}>
-              {year === "All" ? "All Years" : year}
-            </option>
-          ))}
-        </select>
+return new Date(date) > today ? "Upcoming" : "Completed";
 
-      </div>
+}
 
-      {/* CARDS */}
-      <div className="events-container">
-        {filteredEvents.map((event) => {
-          const status = getStatus(event.date);
-          const formattedDate = new Date(event.date).toLocaleDateString();
+return(
 
-          return (
-            <div className="event-card" key={event.id}>
+<section className="events-page">
 
-              <div className="event-image">
-                <img src={event.coverImage} alt={event.title} />
+<div className="events-hero">
 
-                <div className={`date-badge ${status.toLowerCase()}`}>
-                  {formattedDate}
-                </div>
+<h1>Our Events</h1>
 
-                <div className={`status-badge ${status.toLowerCase()}`}>
-                  {status}
-                </div>
+<p>Explore our community initiatives and impact activities.</p>
 
-              </div>
+</div>
 
-              <div className="event-body">
-                <h3>{event.title}</h3>
-                <p>{event.shortDescription}</p>
 
-                <Link to={`/events/${event.id}`} className="event-btn">
-                  Read Full Details →
-                </Link>
-              </div>
+<div className="events-container">
 
-            </div>
-          );
-        })}
-      </div>
+{events.map(event=>{
 
-    </section>
-    
-  );
+const status = getStatus(event.date);
+
+const formattedDate = new Date(event.date).toLocaleDateString();
+
+return(
+
+<div className="event-card" key={event.id}>
+
+<div className="event-image">
+
+<img src={event.cover_image} alt={event.title}/>
+
+<div className={`date-badge ${status.toLowerCase()}`}>
+{formattedDate}
+</div>
+
+<div className={`status-badge ${status.toLowerCase()}`}>
+{status}
+</div>
+
+</div>
+
+<div className="event-body">
+
+<h3>{event.title}</h3>
+
+<p>{event.short_description}</p>
+
+<Link to={`/events/${event.id}`} className="event-btn">
+Read Full Details →
+</Link>
+
+</div>
+
+</div>
+
+);
+
+})}
+
+</div>
+
+</section>
+
+);
+
 }

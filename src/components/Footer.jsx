@@ -73,9 +73,7 @@ export default function Footer() {
               CIN: U88900BR2025NPL079996
             </p>
             <p>
-              VRSF is committed to social awareness, financial literacy,
-              healthcare, environmental responsibility, child safety and
-              skill development initiatives.
+            VRSF works across Health & Hygiene, Women & Child Welfare, Environment Care, Skill Development, Social Awareness and Financial Literacy.
             </p>
 
             <div className="social-row1">

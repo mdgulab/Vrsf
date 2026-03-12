@@ -3,42 +3,46 @@ import { FaChevronLeft, FaChevronRight, FaLeaf, FaHeartbeat, FaUserShield, FaCha
 import "./InitiativesSection.css";
 
 const initiatives = [
+    {
+    title: "Health & Hygiene",
+    desc: "To promote public health and hygiene through awareness programs, preventive healthcare initiatives, medical camps, nutrition awareness, sanitation campaigns, and community health development activities.",
+    icon: <FaHeartbeat />,
+    img: "/init3.png"
+  },
+  {
+    title: "Women & Child Welfare",
+    desc: "To promote the education, safety, and empowerment of women and children through awareness programs, educational initiatives, training programs, and community development activities.",
+    icon: <FaUserShield />,
+    img: "/init5.png"
+  },
+   {
+    title: "Environmental Care",
+    desc: "To undertake environmental protection and sustainability initiatives including tree plantation drives, environmental awareness programs, climate awareness campaigns, and waste management initiatives.",
+    icon: <FaLeaf />,
+    img: "/init4.png"
+  },
+   {
+    title: "Skill Development",
+    desc: "MTo organize skill development programs, vocational training workshops, digital literacy initiatives, employability training, and livelihood development programs for youth and underserved communities.",
+    icon: <FaSeedling />,
+    img: "/init6.png"
+  },
   {
     title: "Social Awareness",
-    desc: "Spreading awareness about education, equality, civic duties and social harmony.",
+    desc: "To conduct awareness campaigns, seminars, workshops, and community outreach programs addressing social issues, civic responsibility, and community development.",
     icon: <FaHandsHelping />,
     img: "/init1.png"
   },
   {
     title: "Financial Literacy",
-    desc: "Workshops on savings, loans and digital safety.",
+    desc: "To promote financial literacy, banking awareness, savings education, digital financial knowledge, and responsible financial practices through training and awareness initiatives.",
     icon: <FaChalkboardTeacher />,
     img: "/init2.png"
   },
-  {
-    title: "Health & Hygiene",
-    desc: "Free checkups and hygiene awareness camps.",
-    icon: <FaHeartbeat />,
-    img: "/init3.png"
-  },
-  {
-    title: "Environmental Care",
-    desc: "Tree plantation and sustainability programs.",
-    icon: <FaLeaf />,
-    img: "/init4.png"
-  },
-  {
-    title: "Child Protection",
-    desc: "Promoting child safety and rights awareness.",
-    icon: <FaUserShield />,
-    img: "/init5.png"
-  },
-  {
-    title: "Skill Development",
-    desc: "Modern skill training and career guidance.",
-    icon: <FaSeedling />,
-    img: "/init6.png"
-  }
+
+ 
+  
+ 
 ];
 
 export default function InitiativesSection() {

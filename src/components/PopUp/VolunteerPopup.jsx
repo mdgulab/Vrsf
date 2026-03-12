@@ -35,7 +35,7 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const response = await fetch("https://vrsf.org.in/api/volunteer.php", {
+    const response = await fetch("https://vrsf.org.in/backend-project/api/volunteer.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,6 +48,7 @@ const handleSubmit = async (e) => {
 
     if (data.status === "success") {
       alert("Volunteer registered successfully");
+      setOpen(false); // popup close ho jayega
     } else {
       alert(data.message);
     }
@@ -57,6 +58,7 @@ const handleSubmit = async (e) => {
     alert("Server connection error");
   }
 };
+
   if (!open) return null;
 
   return (

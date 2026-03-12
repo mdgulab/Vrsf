@@ -1,76 +1,149 @@
+
 import { useParams } from "react-router-dom";
-import eventsData from "../data/eventsData";
+import { useState,useEffect } from "react";
+import { getEvents } from "../data/eventsData";
 import "../styles/Events.css";
 
-export default function EventDetails() {
-  const { id } = useParams();
-  const event = eventsData.find(e => e.id === id);
+export default function EventDetails(){
 
-  if (!event) {
-    return <h2 style={{ padding: "150px 20px" }}>Event Not Found</h2>;
-  }
+const { id } = useParams();
 
-  return (
-    <section className="event-details">
+const [event,setEvent] = useState(null);
 
-      {/* ===== HERO ===== */}
-      <div className="event-hero">
-        <h1>{event.title}</h1>
-      </div>
+useEffect(()=>{
 
-      <div className="event-container">
+async function loadEvent(){
 
-        {/* ===== BASIC INFORMATION ===== */}
-        <div className="event-info">
-          <p><strong>Activity Name:</strong> {event.activityName}</p>
-          <p><strong>Location:</strong> {event.location}</p>
-          <p><strong>Date:</strong> {new Date(event.date).toLocaleDateString()}</p>
-          <p><strong>Organized By:</strong> {event.organizedBy}</p>
-        </div>
+const events = await getEvents();
 
-        {/* ===== OBJECTIVES ===== */}
-        <h3>Objectives of the Program</h3>
-        <ul>
-          {event.objectives.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
+const found = events.find(e => e.id == id);
 
-        {/* ===== PROGRAM DESCRIPTION ===== */}
-        <h3>Program Description</h3>
-        <p className="event-full-desc">{event.programDescription}</p>
+setEvent(found);
 
-        {/* ===== DIGNITARIES ===== */}
-        <h3>Dignitaries & Participants</h3>
-        <p>{event.dignitaries}</p>
+}
 
-        {/* ===== IMPACT ===== */}
-        <h3>Impact of the Program</h3>
-        <p>{event.impact}</p>
+loadEvent();
 
-        {/* ===== DOCUMENTS ===== */}
-        <h3>Official Documents</h3>
-        <div className="pdf-group">
-          <a href={event.documents.declaration} download className="pdf-btn">
-            Declaration
-          </a>
-          <a href={event.documents.activityReport} download className="pdf-btn">
-            Activity Report
-          </a>
-          <a href={event.documents.participationRecord} download className="pdf-btn">
-            Participation Record
-          </a>
-        </div>
+},[id]);
 
-        {/* ===== GALLERY ===== */}
-        <h3>Event Gallery</h3>
-        <div className="gallery">
-          {event.gallery.map((img, index) => (
-            <img src={img} key={index} alt="Event" />
-          ))}
-        </div>
+if(!event){
 
-      </div>
-    </section>
-  );
+return <h2 style={{padding:"150px 20px"}}>Loading...</h2>;
+
+}
+
+return(
+
+<section className="event-details">
+
+<div className="event-hero">
+
+<h1>{event.title}</h1>
+
+</div>
+
+<div className="event-container">
+
+
+<div className="event-info">
+
+<p><strong>Activity Name:</strong> {event.activity_name}</p>
+
+<p><strong>Location:</strong> {event.location}</p>
+
+<p><strong>Date:</strong> {new Date(event.date).toLocaleDateString()}</p>
+
+<p><strong>Organized By:</strong> {event.organized_by}</p>
+
+</div>
+
+
+<h3>Objectives of the Program</h3>
+
+<ul>
+
+{event.objectives.map((obj,index)=>(
+
+<li key={index}>{obj}</li>
+
+))}
+
+</ul>
+
+
+<h3>Program Description</h3>
+
+<p className="event-full-desc">
+
+{event.program_description}
+
+</p>
+
+
+<h3>Dignitaries & Participants</h3>
+
+<p>{event.dignitaries}</p>
+
+
+<h3>Impact of the Program</h3>
+
+<p>{event.impact}</p>
+
+
+<h3>Official Documents</h3>
+
+<div className="pdf-group">
+
+{event.documents.declaration && (
+
+<a href={event.documents.declaration} target="_blank" className="pdf-btn">
+
+Declaration
+
+</a>
+
+)}
+
+{event.documents.activityReport && (
+
+<a href={event.documents.activityReport} target="_blank" className="pdf-btn">
+
+Activity Report
+
+</a>
+
+)}
+
+{event.documents.participationRecord && (
+
+<a href={event.documents.participationRecord} target="_blank" className="pdf-btn">
+
+Participation Record
+
+</a>
+
+)}
+
+</div>
+
+
+<h3>Event Gallery</h3>
+
+<div className="gallery">
+
+{event.gallery.map((img,index)=>(
+
+<img key={index} src={img} alt="Event"/>
+
+))}
+
+</div>
+
+
+</div>
+
+</section>
+
+);
+
 }
