@@ -1,0 +1,118 @@
+body{
+margin:0;
+font-family:Segoe UI;
+background:#f5f7fb;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:220px;
+height:100vh;
+background:linear-gradient(180deg,#1e63b5,#154a88);
+color:white;
+position:fixed;
+padding:20px;
+}
+
+.sidebar h2{
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;
+color:white;
+text-decoration:none;
+padding:10px;
+border-radius:6px;
+margin-bottom:5px;
+}
+
+.sidebar a:hover{
+background:rgba(255,255,255,0.2);
+}
+
+/* MAIN */
+
+.main{
+margin-left:240px;
+padding:30px;
+}
+
+/* TOPBAR */
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.search{
+padding:8px;
+border-radius:6px;
+border:1px solid #ddd;
+}
+
+/* CARDS */
+
+.cards{
+display:flex;
+gap:20px;
+margin-bottom:30px;
+}
+
+.card{
+padding:20px;
+border-radius:12px;
+color:white;
+width:200px;
+box-shadow:0 6px 16px rgba(0,0,0,0.1);
+}
+
+.gradient-blue{
+background:linear-gradient(135deg,#3b82f6,#1e40af);
+}
+
+.gradient-green{
+background:linear-gradient(135deg,#10b981,#047857);
+}
+
+.gradient-purple{
+background:linear-gradient(135deg,#8b5cf6,#5b21b6);
+}
+
+/* GRID */
+
+.dashboard-grid{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:20px;
+}
+
+/* CHART */
+
+.chart-box{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+height:350px;
+}
+
+/* ACTIVITY */
+
+.activity{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.activity ul{
+padding-left:18px;
+}
+
+.activity li{
+margin-bottom:10px;
+}

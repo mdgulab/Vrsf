@@ -1,0 +1,12 @@
+# Environment & secrets
+.env
+
+# Uploads (user content - don't commit)
+uploads/gallery/*
+uploads/documents/*
+!uploads/gallery/.gitkeep
+!uploads/documents/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
