@@ -39,18 +39,17 @@ export default function HeroSection() {
           <h1>VeyonicRise Social Foundation</h1>
 
           <p>
-            VRSF focuses on six core areas of impact — Health & Hygiene,
-            Women & Child Welfare, Environment Care,
-            Skill Development, Social Awareness and Financial Literacy.
+            VRSF focuses on six core areas of impact — Social Awareness Programs,
+            Financial Literacy & Facilitation Workshops, Health & Hygiene Camps,
+            Environmental Responsibilities Drives, Child Protection and Skill
+            Development Trainings for youths.
           </p>
 
-          <button 
-  className="hero-support-btn"
-  onClick={() => window.open("https://pages.razorpay.com/veyonicrisesocialfoundation", "_blank")}
->
-  SUPPORT US →
-</button>
+          <button className="hero-support-btn">
+            SUPPORT US →
+          </button>
         </div>
+
         {/* RIGHT QR */}
         <div className="hero-qr">
           <div className="qr-card">

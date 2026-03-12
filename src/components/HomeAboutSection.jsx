@@ -11,8 +11,8 @@ export default function HomeAboutSection() {
           VRSF (VeyonicRise Social Foundation) is a purpose-driven, 
           Section 8 non-profit organization committed to creating meaningful 
           and sustainable change at the grassroots level. We believe that 
-          real progress begins when communities are empowered with Health, safety, 
-          Environment, Development, Awareness, and Financial Literacy.
+          real progress begins when communities are empowered with awareness, 
+          education, health, safety, skills, and a clean environment.
         </p>
       </div>
 

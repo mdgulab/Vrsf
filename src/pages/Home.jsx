@@ -7,7 +7,6 @@ import VisionMissionSection from "../components/VisionMissionSection";
 import JoinSection from "../components/JoinSection";
 import InitiativesSection from "../components/InitiativesSection";
 import DonateBanner from "../components/DonateBanner";
-import RecentEvents from "../components/HomeRecentEvent";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
       <VisionMissionSection/>
       <JoinSection/>
       <InitiativesSection/>
-      <RecentEvents/>
       {/* <DonateBanner/> */}
       
       {/* <Campaigns /> */}
